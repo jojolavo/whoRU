@@ -100,10 +100,22 @@
             max-width: 100%;
         }
 
-        .responsive-image {
-            max-width: 100%;
-            height: auto;
+        /* Style for home screen image */
+        #homescreen {
+            max-width: 80%; /* Set max-width to 80% of the screen width */
+            height: auto; /* Maintain aspect ratio */
+            margin: 0 auto; /* Center the image horizontally */
+            display: block; /* Make the image block-level for centering */
         }
+        
+        /* Style for result images (e.g., vampire, cowboy, werewolf) */
+        .responsive-image {
+            max-width: 80%; /* Limit the image width to 80% of the container */
+            height: auto; /* Ensure the image scales proportionally */
+            display: block; /* Block display ensures it's centered */
+            margin: 20px auto; /* Add some margin for spacing and center it */
+        }
+
     </style>
 </head>
 <body>
