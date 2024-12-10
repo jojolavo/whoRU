@@ -30,7 +30,7 @@ const gameData = {
         }
     },
     // Add more questions as needed...
-    "5": {
+    "4": {
         "text": "Let's find out your true personality!",
         "choices": {
             "Reveal my personality": [0, []] // Final state, show results
