@@ -17,14 +17,16 @@
             align-items: center;
             justify-content: center;
             font-family: 'PixelFont', sans-serif;
-            background: #f0f0f0;
+            background-color: black; /* Set background to black */
+            color: red; /* Set font color to red */
+            overflow: hidden; /* Prevent scrollbars */
         }
 
         .container {
-            width: 56.25vw; /* 9/16 of the viewport width */
-            height: 100vh; /* full viewport height */
-            max-height: 177.78vh; /* 16/9 of the viewport height */
-            background: #fff;
+            width: 90vw; /* Adjust for smaller screens like iPhone */
+            height: 90vh; /* Adjust for smaller screens */
+            max-height: 90vh; /* Prevent overflow */
+            background: #222; /* Slightly dark background for the container */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -36,22 +38,24 @@
         }
 
         .title {
-            font-size: 3vw;
-            margin-bottom: 3vh;
+            font-size: 5vw; /* Responsive font size */
+            margin-bottom: 5vh;
         }
 
         .start-button {
-            font-size: 2.5vw;
+            font-size: 4vw; /* Adjusted font size */
             padding: 1vh 2vw;
-            border: 2px solid #000;
-            background-color: #fff;
+            border: 2px solid red;
+            background-color: black;
+            color: red;
             cursor: pointer;
             text-decoration: none;
-            margin-bottom: 3vh;
+            margin-bottom: 5vh;
+            border-radius: 5px;
         }
 
         .start-button:hover {
-            background-color: #ddd;
+            background-color: #444;
         }
 
         .game-container {
@@ -59,20 +63,22 @@
         }
 
         .choice-button {
-            font-size: 2vw;
+            font-size: 4vw; /* Adjusted font size */
             padding: 1vh 2vw;
             margin: 1vh 0;
-            border: 2px solid #000;
-            background-color: #fff;
+            border: 2px solid red;
+            background-color: black;
+            color: red;
             cursor: pointer;
+            border-radius: 5px;
         }
 
         .choice-button:hover {
-            background-color: #ddd;
+            background-color: #444;
         }
 
         .story-text {
-            font-size: 2vw;
+            font-size: 4vw; /* Adjusted font size */
             margin-bottom: 2vh;
         }
 
@@ -104,7 +110,7 @@
     <div class="container">
         <div class="title">What Creature Are You?</div>
         <img id="homescreen" src="images/quiz_homepage.png" alt="Personality Quiz Image"/>
-        <a href="#" class="start-button" onclick="startGame()">Start Quiz</a>
+        <button class="start-button" id="startButton">Start Quiz</button> <!-- Changed to a button element -->
         
         <div class="game-container" id="game-container">
             <div class="story-text" id="story-text"></div>
@@ -113,5 +119,11 @@
     </div>
 
     <script src="mainGame.js"></script> <!-- Ensure the path to your main game JavaScript file is correct -->
+    <script>
+        // Add event listener for the start button
+        document.getElementById('startButton').addEventListener('click', function() {
+            startGame();
+        });
+    </script>
 </body>
 </html>
