@@ -104,21 +104,34 @@ function revealPersonality() {
 
     const storyText = document.getElementById('story-text');
     const choicesContainer = document.getElementById('choices');
-    
-    // Show personality result and percentages
-    storyText.innerHTML = `You are a <strong>${personality}</strong>!<br><br>` +
-                          `Vampire: ${percentages["Vampire"]}%<br>` +
-                          `Cowboy: ${percentages["Cowboy"]}%<br>` +
-                          `Werewolf: ${percentages["Werewolf"]}%`;
 
     // Clear the choices section
     choicesContainer.innerHTML = ''; 
 
-    // Optionally, add a personality-related image
+    // Create a container for the image and result text
+    const resultContainer = document.createElement('div');
+    resultContainer.className = 'result-container';
+
+    // Add the result text on top of the image
+    const resultText = document.createElement('div');
+    resultText.className = 'result-text';
+    resultText.innerHTML = `You are a <strong>${personality}</strong>!<br><br>` +
+                           `Vampire: ${percentages["Vampire"]}%<br>` +
+                           `Cowboy: ${percentages["Cowboy"]}%<br>` +
+                           `Werewolf: ${percentages["Werewolf"]}%`;
+
+    // Add the result image
     const img = new Image();
     img.src = `images/${personality.toLowerCase()}.png`; // Load corresponding image: vampire.png, cowboy.png, or werewolf.png
     img.className = 'responsive-image'; // Apply responsive-image class for resizing
-    storyText.appendChild(img);
+
+    // Append the text and image to the result container
+    resultContainer.appendChild(resultText);
+    resultContainer.appendChild(img);
+
+    // Append the result container to the story text section
+    storyText.innerHTML = ''; // Clear any existing content
+    storyText.appendChild(resultContainer);
 
     // Restart button
     const restartButton = document.createElement('button');
@@ -127,6 +140,7 @@ function revealPersonality() {
     restartButton.onclick = () => location.reload(); // Reload the page to restart the quiz
     choicesContainer.appendChild(restartButton);
 }
+
 
 
 function startGame() {
