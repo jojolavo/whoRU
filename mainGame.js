@@ -104,26 +104,30 @@ function revealPersonality() {
 
     const storyText = document.getElementById('story-text');
     const choicesContainer = document.getElementById('choices');
-    storyText.textContent = `You are a ${personality}!\n\n` +
-                            `Vampire: ${percentages["Vampire"]}%\n` +
-                            `Cowboy: ${percentages["Cowboy"]}%\n` +
-                            `Werewolf: ${percentages["Werewolf"]}%`;
+    
+    // Show personality result and percentages
+    storyText.innerHTML = `You are a <strong>${personality}</strong>!<br><br>` +
+                          `Vampire: ${percentages["Vampire"]}%<br>` +
+                          `Cowboy: ${percentages["Cowboy"]}%<br>` +
+                          `Werewolf: ${percentages["Werewolf"]}%`;
 
-    choicesContainer.innerHTML = ''; // No more choices
+    // Clear the choices section
+    choicesContainer.innerHTML = ''; 
 
     // Optionally, add a personality-related image
     const img = new Image();
-    img.src = `images/${personality.toLowerCase()}.png`; // e.g., vampire.png
-    img.className = 'responsive-image';
+    img.src = `images/${personality.toLowerCase()}.png`; // Load corresponding image: vampire.png, cowboy.png, or werewolf.png
+    img.className = 'responsive-image'; // Apply responsive-image class for resizing
     storyText.appendChild(img);
 
     // Restart button
     const restartButton = document.createElement('button');
     restartButton.textContent = 'Try again!';
     restartButton.className = 'choice-button';
-    restartButton.onclick = () => location.reload();
+    restartButton.onclick = () => location.reload(); // Reload the page to restart the quiz
     choicesContainer.appendChild(restartButton);
 }
+
 
 function startGame() {
     document.querySelector('.title').style.display = 'none';
