@@ -1,3 +1,4 @@
-https://sophie006liu.github.io/vegetal
+Code format taken from: https://sophie006liu.github.io/vegetal
 
-Hello world :)
+See product at: https://jojolavo.github.io/whoRU
+
